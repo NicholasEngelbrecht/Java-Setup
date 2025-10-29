@@ -25,6 +25,8 @@ public class Monday20 {
             grades += grade;
         }
 
+        console.close();
+
         return grades / n;
     }
 
@@ -36,7 +38,7 @@ public class Monday20 {
         double average = 0.0d;
         Scanner console = new Scanner(System.in);
 
-        for (;;n++) {
+        while (true) {
             System.out.print("Grade " + n + ": ");
             String text = console.next();
 
@@ -49,6 +51,8 @@ public class Monday20 {
                 n--;
             }
         }
+
+        console.close();
 
         return average;
     }

@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Monday27 {
@@ -33,5 +32,7 @@ public class Monday27 {
                 errored = true;
             }
         }
+
+        scanner.close();
     }
 }
