@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Files {
@@ -18,6 +19,10 @@ public class Files {
         scanner.close();
         scanner = new Scanner(students);
 
+        // Create new writable file
+        File output = new File("Chapter 06/output.txt");
+        PrintStream out = new PrintStream(output);
+
         // Loop through the scanner if there is a next token
         while (scanner.hasNext()) {
             String line = scanner.nextLine();
@@ -29,15 +34,16 @@ public class Files {
             int year = process.nextInt();
             String grades = process.nextLine();
 
-            System.out.println("--------------------------------");
-            System.out.println("Name:   " + given + ", " + last);
-            System.out.println("Year:   " + year);
-            System.out.println("Grades: " + grades);
-            System.out.println("--------------------------------\n");
+            out.println("--------------------------------");
+            out.println("Name:   " + given + ", " + last);
+            out.println("Year:   " + year);
+            out.println("Grades: " + grades);
+            out.println("--------------------------------\n");
 
             process.close();
         }
 
+        out.close();
         scanner.close();
     }
 }
