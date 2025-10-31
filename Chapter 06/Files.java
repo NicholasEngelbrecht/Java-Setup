@@ -7,7 +7,16 @@ public class Files {
     void main() throws FileNotFoundException {
         // Open a file and give it to a scanner
         File students = new File("Chapter 06/students.txt");
-        Scanner scanner = new Scanner(students);
+    
+        // Check if file exists and ask for new file name if not
+        Scanner scanner = new Scanner(System.in);
+        while (!students.canRead()) {
+            System.out.println("File \"" + students.getPath() + "\" does not exist.  Please input a new file name: ");
+            students = new File(scanner.nextLine());
+        }
+
+        scanner.close();
+        scanner = new Scanner(students);
 
         // Loop through the scanner if there is a next token
         while (scanner.hasNext()) {
